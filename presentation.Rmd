@@ -1,10 +1,11 @@
 ---
 title: Modules in R
 subtitle: eRum 2016
-author: Sebastian Warnholz
+author: Sebastian Warnholz - **INWT** Statistics
 output: 
   ioslides_presentation:
     widescreen: true
+    logo: logo.svg
 ---
 
 ```{r setup, include=FALSE}
@@ -12,189 +13,51 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-## Motivation
+## Motivation {.smaller}
 
-  - `dplyr` and `data.table`
-  - syntax is a plus
-      - not with package development
-      - rewrite everything after running `R CMD check`
-  - performance
-  - integration with custom class definitions
-      - not supported
-  - improve and integrate the definition of anonymous functions (see for example `rlist` and recently `purrr`)
+<div class="columns-2">
+<div style="height=100%">
+### Initial Problem
+```{r echo = TRUE, error=TRUE}
+library("parallel")
+helper <- function(x) median(x)
+fun <- function(x) helper(x)
+
+cl <- makeCluster(2)
+clusterMap(cl, fun, 1:2)
+stopCluster(cl)
+```
+</div>
+
+<div style="bottom: 20px;"></div>
+
+### Solution
+```{r echo = TRUE, message=FALSE}
+library("parallel")
+library("modules")
+m <- module({
+  import("stats", "median")
+  helper <- function(x) median(x)
+  fun <- function(x) helper(x)
+})
+
+cl <- makeCluster(2)
+clusterMap(cl, m$fun, 1:2)
+stopCluster(cl)
+```
+
+</div>
+
+
 
 
 ## The 'Solution'
 
-  - extensive use of the formula class
-  - pro: 
-      - `R CMD check` friendly
-      - not relying on non-standard-evaluation: normal dispatch and argument
-      passing possible
-  - contra:
-      - using formulas is a matter of preference
 
 
 ## Aim of the Package
 
-  - don't loose the performance improvements from `dplyr` or `data.table`
-  - reuse as much as possible
-  - be generic
-  - respect custom classes
-  - abstract (my) typical (data manipulation) patterns
 
-
-## Design Issues
-
-  - `dplyr`: functions do one thing only!
-      - `slice` and `filter`
-  - `data.table`: let's write one function only!
-      - `[.data.table` has about 1500 lines of code
-      - 400 open issues on github
-  - `dat`: I don't believe in extremes
-      - is somewhere in between
-      - preserves the class (S3 + S4) and uses (mostly) dplyr in the background
-
-
-## Examples: rows
-
-```{r echo=TRUE}
-data("airquality")
-suppressPackageStartupMessages(library("dat"))
-airQuality <- as.DataFrame(airquality)
-airQuality[~Day < 7, ]
-```
-
-
-## Examples: rows
-
-```{r echo=TRUE}
-suppressPackageStartupMessages(library("data.table"))
-as.data.table(airquality) %>% mutar(~ Day < 7)
-```
-
-
-## Examples: cols
-
-```{r eval = FALSE, echo = TRUE}
-airQuality[is.numeric]
-# airquality(sapply(airquality, is.numeric))
-
-as.data.table(airquality) %>% mutar("Ozone:Wind") # remeber dplyr::select
-
-mutar(airquality, "^Wi") # regex is triggered by '^'
-airQuality["^Wi"]
-# airquality[grepl("^Wi", names(airquality))]
-
-airQuality[1] # error - no positional matching!
-
-# Yes, base R syntax is otherwise okay:
-ind <- 1:5
-airQuality[ind, "Wind"]
-```
-
-
-## Examples: mutate + summary
-
-```{r echo = TRUE, eval = FALSE}
-airquality %>%
-  mutar(
-    meanWind ~ mean(Wind), 
-    by = "Month"
-  )
-
-airQuality[meanWind ~ mean(Wind), by = "Month"]
-```
-
-- `mutar` can do
-    - row subsetting
-    - col subsetting (character + logical, regex, functions)
-    - create new columns using `dplyr::mutate`
-    - data aggregation using `dplyr::summarise` (triggered with `by`)
-    - stops here
-
-
-## Integration of Custom Classes
-
-```{r error=TRUE, echo=TRUE}
-setClass("MyData", contains = "data.table")
-MyData <- function(...) new("MyData", data.table(...))
-dat <- do.call(MyData, airquality)
-dat[1, ] # it is just broken - same for dplyr
-```
-
-
-## `mutar` can do more!
-
-```{r echo=TRUE}
-setMethod("[", "MyData", mutar)
-dat[1, ]
-dat[1, CopyOfDay ~ Day]
-```
-
-
-## Additional functions
-
-- `map`: as a replacement for `lapply` and `mapply`
-- `flatmap`: instead of `sapply`
-- `replace`: to replace values in a vector
-- `extract`: to extract values from a vector
-
-
-## Be `data.frame` aware
-
-```{r echo = TRUE}
-ind <- sapply(airquality, is.integer)
-airquality[ind] <- lapply(airquality[ind], function(x) as.character(x + 1))
-map(airquality, x ~ as.integer(x) - 1L, is.character) %>%
-  str
-```
-
-
-## Be `list` aware
-
-```{r}
-l <- list(
-  a = list(name = "Me", age = 29),
-  b = list(name = "You", age = ">30")
-)
-```
-
-```{r echo=TRUE, eval=FALSE}
-l <- list(
-  a = list(name = "Me", age = 29),
-  b = list(name = "You", age = ">30")
-)
-
-lapply(l, function(x) x["name"])
-map(l, "name")
-flatmap(l, "name")
-```
-
-```{r echo=TRUE, eval = TRUE}
-flatmap(l, ~ .$name) # function(.) .$name
-```
-
-
-## Be paranoid  
-
-- add runtime type checks
-
-```{r echo=TRUE, error=TRUE}
-flatmap(l, numeric : x ~ x$age)
-flatmap(l, character(1) : x ~ x$name)
-```
-
-
-## Be comprehensive
-
-```{r echo = TRUE}
-extract(1:20, ~ . %% 2 == 0)
-replace(1:10, ~ . %% 2 == 0, NA_real_)
-
-vec <- 1:20
-vec[vec %% 2 == 0]
-```
 
 
 ## Summary
@@ -211,7 +74,7 @@ almost all use cases for production code
 
 ## Want more?
 
-- Modules is on GitHub
+- `modules` is on GitHub
     - [github.com/wahani/modules](https://www.github.com/wahani/modules)
     - Just file an issue / make a pull request
     - It has a vignette / Readme

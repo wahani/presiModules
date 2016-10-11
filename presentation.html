@@ -31,12 +31,13 @@
         usePrettify: true,
         enableSlideAreas: true,
         enableTouch: true,
-                      },
+                        favIcon: 'logo.svg',
+              },
 
       // Author information
       presenters: [
             {
-        name:  'Sebastian Warnholz' ,
+        name:  'Sebastian Warnholz - <strong>INWT</strong> Statistics' ,
         company: '',
         gplus: '',
         twitter: '',
@@ -73,6 +74,21 @@
       opacity: 0;
     }
 
+    slides > slide:not(.nobackground):before {
+      font-size: 12pt;
+      content: "";
+      position: absolute;
+      bottom: 20px;
+      left: 60px;
+      background: url(logo.svg) no-repeat 0 50%;
+      -webkit-background-size: 30px 30px;
+      -moz-background-size: 30px 30px;
+      -o-background-size: 30px 30px;
+      background-size: 30px 30px;
+      padding-left: 40px;
+      height: 30px;
+      line-height: 1.9;
+    }
   </style>
 
 
@@ -84,6 +100,7 @@
 <slides class="layout-widescreen">
 
   <slide class="title-slide segue nobackground">
+        <aside class="gdbar"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkViZW5lXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA3Ni45IDk3LjMiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDc2LjkgOTcuMzsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiM2RkIyRTI7fQoJLnN0MXtmaWxsOiMyNjY1QUU7fQoJLnN0MntmaWxsOiM4QkMwNEQ7fQo8L3N0eWxlPgo8ZyBpZD0iYmx1ZV8zMDAiPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTQ3LjksMi42YzAsMC0yLjgtMC45LTcuMS0xLjJjLTIuMS0wLjEtNC40LTAuMS03LjMsMC4zYy0yLjUsMC40LTUuMiwxLTcuNCwxLjhjLTIuOSwxLTUsMi4yLTUsMi4ybDAuNiwxLjQKCQljMCwwLDItMS4yLDUuMy0yLjNjMi0wLjcsNC41LTEuMyw3LjEtMS43YzMuMS0wLjQsNi4yLTAuMyw4LjYsMGMyLjksMC40LDQuOSwxLDQuOSwxTDQ3LjksMi42eiIvPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTkuNCw1OS44bC0xLjMsMC44YzAsMC0xLjYtMi4zLTIuOC00LjljLTAuMi0wLjQtMS4yLTIuNS0yLTQuOEMyLjUsNDguNSwyLDQ2LDEuOCw0NC43CgkJYy0wLjUtMy4xLTAuNC01LjctMC40LTYuNWMwLTEuOSwwLjItMy45LDAuNS01LjdzMC43LTMuNSwxLjItNWMxLjEtMy40LDIuMi01LjYsMi4yLTUuNmwxLjMsMC42YzAsMC0xLjIsMi4zLTIuMSw1LjIKCQljLTAuNiwyLjEtMS4yLDQuNC0xLjQsNi4zQzMsMzUuOCwyLjQsMzkuMywzLjMsNDQuN2MwLDAuMywwLjMsMS44LDAuOCwzLjZjMC42LDIuMiwxLjcsNSwyLjUsNi42QzcuOSw1Ny41LDkuNCw1OS44LDkuNCw1OS44eiIvPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTI0LjMsMTMuMWMwLDAsMy4xLTEuOCw2LjgtMi44YzQuMi0xLjEsNy42LTAuOSw3LjYtMC45djEuNWMwLDAtMy4yLTAuMy03LjIsMC44Yy0zLjksMS4xLTYuNiwyLjgtNi42LDIuOAoJCUwyNC4zLDEzLjF6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTIuNiwyNS4yYzAsMC0xLjksMy4zLTIuNyw4Yy0wLjUsMi43LTEsNS4zLTAuOCw4LjhjMC4zLDMuOSwyLjIsNy44LDMuOCwxMWMyLjQsNC41LDUuNiw3LjUsNS42LDcuNWwxLjEtMS4xCgkJYzAsMC0zLjItMy4xLTUuNS03LjJjLTEuOC0zLjMtMy40LTcuMi0zLjgtMTAuMmMtMC40LTMsMC4zLTUuNywwLjgtOC43YzAuOS00LjcsMi43LTcuNiwyLjctNy42TDEyLjYsMjUuMnoiLz4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMi4xLDQxLjNsLTEuOSwwLjFjMCwwLTAuMS0yLjksMC42LTZjMC43LTMsMi40LTUuNSwyLjQtNS41bDEuNywwLjhjMCwwLTEuNiwyLjMtMi4zLDUuNAoJCUMyMS44LDM5LjIsMjIuMSw0MS4zLDIyLjEsNDEuM3oiLz4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zOC4zLDIxbDAuMSwxLjhjMCwwLTIsMC4xLTQuNSwwLjhjLTIuMiwwLjctNC4xLDItNC4xLDJMMjkuMSwyNGMwLDAsMS42LTEuMSw0LjMtMgoJCUMzNS43LDIxLjIsMzguMywyMSwzOC4zLDIxeiIvPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTI0LjYsNDkuM2MwLDAsNCw2LjEsMTEuNiw3LjNjOC44LDEuMywxNC4yLTQuMywxNC4yLTQuM2wwLjcsMS41YzAsMC00LjYsNS41LTE0LjYsNC42CgkJYy04LjYtMC43LTEzLjItOC4yLTEzLjItOC4yTDI0LjYsNDkuM3oiLz4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik02NS40LDQ0LjNsMS40LDAuM2MwLDAtMC4zLDIuMS0xLjYsNS4zYy0wLjcsMS45LTEuOSw0LjEtMy43LDYuNWMtMS43LDIuMi00LjIsNC44LTYuNiw2LjUKCQljLTIuMiwxLjUtNCwyLjUtNCwyLjVMNTAuMyw2NGMwLDAsMS44LTAuOCw0LTIuNGMxLjktMS40LDQuMi0zLjUsNi4xLTUuOUM2NC4zLDUwLjUsNjUuNCw0NC4zLDY1LjQsNDQuM3oiLz4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMC41LDY5LjljMCwwLDEuMywwLjgsMy4xLDEuNmMxLjksMC44LDQuMywxLjcsNi40LDIuMnM0LjMsMC44LDYsMC45YzIuMSwwLjEsMy41LDAuMSwzLjUsMC4xdjEuNgoJCWMwLDAtMS45LDAuMS00LjEtMC4xYy0yLjMtMC4yLTQuOS0wLjctNS45LTFjLTUuMy0xLjMtOS43LTQuMS05LjctNC4xTDIwLjUsNjkuOXoiLz4KPC9nPgo8ZyBpZD0iYmx1ZV84MDAiPgoJPHBhdGggY2xhc3M9InN0MSIgZD0iTTguNSwzM2wzLjgsMC41YzAsMC0wLjQsMS42LTAuNSwzLjljLTAuMSwxLjcsMCwzLjksMC4zLDUuN2MwLjMsMS45LDAuNywzLjQsMS4yLDQuN2MwLjksMi41LDIsNCwyLDRMMTIsNTMuNQoJCWMwLDAtMC45LTEuMi0xLjctMy4xYy0wLjktMi0xLjgtNC44LTItNy4yYy0wLjItMS42LTAuMi0zLjUtMC4yLTUuNEM4LjIsMzUuMiw4LjUsMzMsOC41LDMzeiIvPgoJPHBhdGggY2xhc3M9InN0MSIgZD0iTTY2LjcsMjguNWMwLDAtMC45LTMuNy0zLjktNy45QzYxLDE4LDU4LjQsMTUuNCw1NSwxMy4xcy02LjctMy42LTkuNy00LjNjLTQuMi0xLTguNy0wLjYtOC43LTAuNmwwLjMsMy44CgkJYzAsMCwzLjItMC4zLDcuMywwLjZjMi43LDAuNiw1LjgsMS44LDguNiwzLjhjMy4xLDIuMyw1LjIsNC43LDYuNyw2LjdjMi4yLDMsMy42LDYuNiwzLjYsNi42TDY2LjcsMjguNXoiLz4KCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik01NC45LDI4LjFsLTMuMSwyLjNjMCwwLDQuMSw0LjcsMi45LDExLjljLTEuMSw2LjgtNi4zLDEwLjMtNi4zLDEwLjNsMi4yLDMuMWMwLDAsNi40LTMuOSw3LjgtMTMKCQlTNTQuOSwyOC4xLDU0LjksMjguMXoiLz4KCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik03Mi43LDM4LjRsMy45LTAuMWMwLDAsMC40LDQuOC0xLjQsMTAuOUM3My42LDU1LDcwLDYxLjksNjQuNSw2N2MtNi4zLDUuOC0xMC4xLDcuMi0xNC40LDguNgoJCWMtNi4xLDItMTEuNywyLTExLjcsMmwtMC4xLTMuOWMwLDAsNC43LDAuMSwxMC4zLTEuN2M0LjQtMS40LDkuMS0zLjksMTMuNy04LjNjNS45LTUuOCw4LjYtMTIuOCw5LjctMTguMQoJCUM3Myw0MS40LDcyLjcsMzguNCw3Mi43LDM4LjR6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMzguMywzMC42YzMuOSwwLDguMiwzLjEsOC4yLDguN3MtNS4xLDcuOS04LjIsNy45Yy0zLjgsMC04LjItMi45LTguMi04LjNTMzQuNCwzMC42LDM4LjMsMzAuNnoiLz4KCTxnPgoJCTxnPgoJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMCw5Ny4ydi03LjVoMS42djcuNUgweiIvPgoJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTAuNyw5Ny4yaC0ybC0zLjMtNS43bDAsMGMwLjEsMSwwLjEsMS43LDAuMSwyLjF2My41SDR2LTcuNWgybDMuMyw1LjZsMCwwYy0wLjEtMS0wLjEtMS43LTAuMS0yLjF2LTMuNQoJCQkJaDEuNHY3LjZIMTAuN3oiLz4KCQkJPHBhdGggY2xhc3M9InN0MSIgZD0iTTIwLjQsOTcuMmgtMS44bC0xLTMuOWMwLTAuMS0wLjEtMC40LTAuMi0wLjljLTAuMS0wLjQtMC4xLTAuNy0wLjItMC45YzAsMC4yLTAuMSwwLjUtMC4yLDAuOQoJCQkJcy0wLjEsMC43LTAuMiwwLjlsLTEsMy45SDE0bC0xLjktNy41aDEuNmwxLDQuMWMwLjIsMC44LDAuMywxLjQsMC40LDJjMC0wLjIsMC4xLTAuNSwwLjEtMC45YzAuMS0wLjQsMC4xLTAuNywwLjItMWwxLjEtNC4ySDE4CgkJCQlsMS4xLDQuMmMwLDAuMiwwLjEsMC41LDAuMiwwLjlzMC4xLDAuNywwLjIsMWMwLTAuMywwLjEtMC42LDAuMi0xczAuMS0wLjcsMC4yLTFsMS00LjFoMS42TDIwLjQsOTcuMnoiLz4KCQkJPHBhdGggY2xhc3M9InN0MSIgZD0iTTI2LjYsOTcuMkgyNVY5MWgtMnYtMS4zaDUuN1Y5MWgtMnY2LjJIMjYuNnoiLz4KCQk8L2c+Cgk8L2c+Cgk8Zz4KCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMzcuOCw5NS4yYzAsMC43LTAuMiwxLjItMC43LDEuNXMtMS4xLDAuNi0xLjksMC42Yy0wLjksMC0xLjYtMC4xLTItMC4zdi0wLjhjMC4zLDAuMSwwLjYsMC4yLDEsMC4zCgkJCWMwLjQsMC4xLDAuNywwLjEsMS4xLDAuMWMwLjYsMCwxLTAuMSwxLjMtMC4zYzAuMy0wLjIsMC40LTAuNSwwLjQtMC45YzAtMC4zLTAuMS0wLjUtMC4yLTAuNmMtMC4xLTAuMi0wLjMtMC4zLTAuNS0wLjUKCQkJYy0wLjItMC4xLTAuNi0wLjMtMS4xLTAuNWMtMC43LTAuMi0xLjItMC41LTEuNS0wLjljLTAuMy0wLjMtMC40LTAuOC0wLjQtMS4zYzAtMC42LDAuMi0xLDAuNy0xLjRjMC40LTAuMywxLTAuNSwxLjctMC41CgkJCXMxLjQsMC4xLDIuMSwwLjRsLTAuMywwLjhjLTAuNi0wLjMtMS4yLTAuNC0xLjgtMC40Yy0wLjUsMC0wLjgsMC4xLTEuMSwwLjNjLTAuMywwLjItMC40LDAuNS0wLjQsMC44czAsMC41LDAuMSwwLjYKCQkJYzAuMSwwLjIsMC4zLDAuMywwLjUsMC41YzAuMiwwLjEsMC42LDAuMywxLDAuNWMwLjgsMC4zLDEuMywwLjYsMS42LDAuOUMzNy43LDk0LjMsMzcuOCw5NC43LDM3LjgsOTUuMnoiLz4KCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNDEuMiw5Ni42YzAuMiwwLDAuMywwLDAuNCwwYzAuMSwwLDAuMywwLDAuMy0wLjF2MC43Yy0wLjEsMC0wLjIsMC4xLTAuNCwwLjFzLTAuMywwLTAuNSwwCgkJCWMtMS4xLDAtMS42LTAuNi0xLjYtMS43di0zLjNoLTAuOHYtMC40bDAuOC0wLjRsMC40LTEuMmgwLjV2MS4zSDQydjAuN2gtMS42djMuM2MwLDAuMywwLjEsMC42LDAuMiwwLjgKCQkJQzQwLjcsOTYuNSw0MSw5Ni42LDQxLjIsOTYuNnoiLz4KCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNDYuOCw5Ny4ybC0wLjItMC44bDAsMGMtMC4zLDAuNC0wLjYsMC42LTAuOCwwLjdjLTAuMywwLjEtMC42LDAuMi0xLDAuMmMtMC42LDAtMS0wLjEtMS4zLTAuNAoJCQlTNDMsOTYuMiw0Myw5NS43YzAtMS4xLDAuOS0xLjcsMi43LTEuOGgxdi0wLjNjMC0wLjQtMC4xLTAuOC0wLjMtMXMtMC41LTAuMy0wLjktMC4zYy0wLjUsMC0xLDAuMS0xLjYsMC40TDQzLjUsOTIKCQkJYzAuMy0wLjIsMC42LTAuMywwLjktMC40YzAuMy0wLjEsMC43LTAuMSwxLTAuMWMwLjcsMCwxLjIsMC4xLDEuNSwwLjRzMC41LDAuOCwwLjUsMS40djMuOEw0Ni44LDk3LjJMNDYuOCw5Ny4yeiBNNDQuOSw5Ni42CgkJCWMwLjUsMCwwLjktMC4xLDEuMi0wLjRzMC41LTAuNywwLjUtMS4ydi0wLjVoLTAuOWMtMC43LDAtMS4yLDAuMS0xLjUsMC4zcy0wLjQsMC41LTAuNCwwLjljMCwwLjMsMC4xLDAuNSwwLjMsMC43CgkJCUM0NC4zLDk2LjUsNDQuNSw5Ni42LDQ0LjksOTYuNnoiLz4KCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNTEuMiw5Ni42YzAuMiwwLDAuMywwLDAuNCwwYzAuMSwwLDAuMywwLDAuMy0wLjF2MC43Yy0wLjEsMC0wLjIsMC4xLTAuNCwwLjFzLTAuMywwLTAuNSwwCgkJCWMtMS4xLDAtMS42LTAuNi0xLjYtMS43di0zLjNoLTAuOHYtMC40bDAuOC0wLjRsMC40LTEuMmgwLjV2MS4zaDEuNnYwLjdoLTEuNnYzLjNjMCwwLjMsMC4xLDAuNiwwLjIsMC44CgkJCUM1MC43LDk2LjUsNTAuOSw5Ni42LDUxLjIsOTYuNnoiLz4KCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNTMuMiw5MC4xYzAtMC4yLDAtMC4zLDAuMS0wLjRzMC4yLTAuMSwwLjQtMC4xYzAuMSwwLDAuMywwLDAuNCwwLjFjMC4xLDAuMSwwLjEsMC4yLDAuMSwwLjRzMCwwLjMtMC4xLDAuNAoJCQlzLTAuMiwwLjEtMC40LDAuMWMtMC4xLDAtMC4zLDAtMC40LTAuMVM1My4yLDkwLjMsNTMuMiw5MC4xeiBNNTQuMSw5Ny4yaC0wLjl2LTUuNmgwLjlWOTcuMnoiLz4KCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNTkuOCw5NS43YzAsMC41LTAuMiwwLjktMC42LDEuMmMtMC40LDAuMy0wLjksMC40LTEuNiwwLjRjLTAuNywwLTEuMy0wLjEtMS43LTAuNHYtMC44CgkJCWMwLjMsMC4xLDAuNiwwLjIsMC45LDAuM2MwLjMsMC4xLDAuNiwwLjEsMC45LDAuMWMwLjQsMCwwLjgtMC4xLDEtMC4yczAuNC0wLjQsMC40LTAuNnMtMC4xLTAuNC0wLjMtMC42cy0wLjYtMC4zLTEuMS0wLjYKCQkJYy0wLjUtMC4yLTAuOS0wLjQtMS4xLTAuNWMtMC4yLTAuMS0wLjQtMC4zLTAuNS0wLjVzLTAuMi0wLjQtMC4yLTAuN2MwLTAuNSwwLjItMC44LDAuNi0xLjFjMC40LTAuMywwLjktMC40LDEuNS0wLjQKCQkJczEuMiwwLjEsMS44LDAuNGwtMC4zLDAuN2MtMC42LTAuMi0xLjEtMC4zLTEuNS0wLjNzLTAuNywwLjEtMC45LDAuMnMtMC4zLDAuMy0wLjMsMC41czAsMC4zLDAuMSwwLjRzMC4yLDAuMiwwLjQsMC4zCgkJCXMwLjUsMC4yLDEsMC40YzAuNywwLjIsMS4xLDAuNSwxLjQsMC43QzU5LjYsOTUsNTkuOCw5NS4zLDU5LjgsOTUuN3oiLz4KCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNjMuMiw5Ni42YzAuMiwwLDAuMywwLDAuNCwwYzAuMSwwLDAuMywwLDAuMy0wLjF2MC43Yy0wLjEsMC0wLjIsMC4xLTAuNCwwLjFzLTAuMywwLTAuNSwwCgkJCWMtMS4xLDAtMS42LTAuNi0xLjYtMS43di0zLjNoLTAuOHYtMC40bDAuOC0wLjRsMC40LTEuMmgwLjV2MS4zaDEuNnYwLjdoLTEuNnYzLjNjMCwwLjMsMC4xLDAuNiwwLjIsMC44CgkJCUM2Mi43LDk2LjUsNjIuOSw5Ni42LDYzLjIsOTYuNnoiLz4KCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNjUuMiw5MC4xYzAtMC4yLDAtMC4zLDAuMS0wLjRzMC4yLTAuMSwwLjQtMC4xYzAuMSwwLDAuMywwLDAuNCwwLjFzMC4xLDAuMiwwLjEsMC40czAsMC4zLTAuMSwwLjQKCQkJcy0wLjIsMC4xLTAuNCwwLjFjLTAuMSwwLTAuMywwLTAuNC0wLjFTNjUuMiw5MC4zLDY1LjIsOTAuMXogTTY2LjEsOTcuMmgtMC45di01LjZoMC45Vjk3LjJ6Ii8+CgkJPHBhdGggY2xhc3M9InN0MSIgZD0iTTcwLjQsOTcuM2MtMC44LDAtMS40LTAuMi0xLjktMC44Yy0wLjQtMC41LTAuNy0xLjItMC43LTIuMXMwLjItMS43LDAuNy0yLjJzMS4xLTAuOCwxLjktMC44CgkJCWMwLjMsMCwwLjUsMCwwLjgsMC4xczAuNSwwLjEsMC42LDAuMmwtMC4zLDAuN2MtMC4yLTAuMS0wLjQtMC4xLTAuNi0wLjJjLTAuMiwwLTAuNC0wLjEtMC42LTAuMWMtMS4xLDAtMS43LDAuNy0xLjcsMi4yCgkJCWMwLDAuNywwLjEsMS4yLDAuNCwxLjZzMC43LDAuNiwxLjIsMC42czAuOS0wLjEsMS40LTAuM1Y5N0M3MS40LDk3LjIsNzAuOSw5Ny4zLDcwLjQsOTcuM3oiLz4KCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNzYuOSw5NS43YzAsMC41LTAuMiwwLjktMC42LDEuMmMtMC40LDAuMy0wLjksMC40LTEuNiwwLjRzLTEuMy0wLjEtMS43LTAuNHYtMC44YzAuMywwLjEsMC42LDAuMiwwLjksMC4zCgkJCWMwLjMsMC4xLDAuNiwwLjEsMC45LDAuMWMwLjQsMCwwLjgtMC4xLDEtMC4yczAuNC0wLjQsMC40LTAuNnMtMC4xLTAuNC0wLjMtMC42cy0wLjYtMC4zLTEuMS0wLjZjLTAuNS0wLjItMC45LTAuNC0xLjEtMC41CgkJCXMtMC40LTAuMy0wLjUtMC41UzczLDkzLjEsNzMsOTIuOGMwLTAuNSwwLjItMC44LDAuNi0xLjFjMC40LTAuMywwLjktMC40LDEuNS0wLjRzMS4yLDAuMSwxLjgsMC40bC0wLjMsMC43CgkJCWMtMC42LTAuMi0xLjEtMC4zLTEuNS0wLjNzLTAuNywwLjEtMC45LDAuMmMtMC4yLDAuMS0wLjMsMC4zLTAuMywwLjVzMCwwLjMsMC4xLDAuNHMwLjIsMC4yLDAuNCwwLjNzMC41LDAuMiwxLDAuNAoJCQljMC43LDAuMiwxLjEsMC41LDEuNCwwLjdDNzYuOCw5NSw3Ni45LDk1LjMsNzYuOSw5NS43eiIvPgoJPC9nPgo8L2c+CjxnIGlkPSJsaWdodF9ncmVlbiI+Cgk8cG9seWdvbiBjbGFzcz0ic3QyIiBwb2ludHM9IjE1LjgsMCAyOS4yLDMwLjEgMCwxNi45IAkiLz4KPC9nPgo8L3N2Zz4K"></aside>
         <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
     <hgroup class="auto-fadein">
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
@@ -92,271 +109,50 @@
           </hgroup>
   </slide>
 
-<slide class=''><hgroup><h2>Motivation</h2></hgroup><article  id="motivation">
+<slide class=''><hgroup><h2>Motivation</h2></hgroup><article  id="motivation" class="smaller">
 
-<ul>
-<li><code>dplyr</code> and <code>data.table</code></li>
-<li>syntax is a plus
+<div class="columns-2">
+<div style="height=100%">
+<h3>Initial Problem</h3>
 
-<ul>
-<li>not with package development</li>
-<li>rewrite everything after running <code>R CMD check</code></li>
-</ul></li>
-<li>performance</li>
-<li>integration with custom class definitions
+<pre class = 'prettyprint lang-r'>library(&quot;parallel&quot;)
+helper &lt;- function(x) median(x)
+fun &lt;- function(x) helper(x)
 
-<ul>
-<li>not supported</li>
-</ul></li>
-<li>improve and integrate the definition of anonymous functions (see for example <code>rlist</code> and recently <code>purrr</code>)</li>
-</ul>
+cl &lt;- makeCluster(2)
+clusterMap(cl, fun, 1:2)</pre>
+
+<pre >## Error in checkForRemoteErrors(val): 2 nodes produced errors; first error: could not find function &quot;helper&quot;</pre>
+
+<pre class = 'prettyprint lang-r'>stopCluster(cl)</pre></div>
+
+<div style="bottom: 20px;">
+</div>
+
+<h3>Solution</h3>
+
+<pre class = 'prettyprint lang-r'>library(&quot;parallel&quot;)
+library(&quot;modules&quot;)
+m &lt;- module({
+  import(&quot;stats&quot;, &quot;median&quot;)
+  helper &lt;- function(x) median(x)
+  fun &lt;- function(x) helper(x)
+})
+
+cl &lt;- makeCluster(2)
+clusterMap(cl, m$fun, 1:2)</pre>
+
+<pre >## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 2</pre>
+
+<pre class = 'prettyprint lang-r'>stopCluster(cl)</pre></div>
 
 </article></slide><slide class=''><hgroup><h2>The &#39;Solution&#39;</h2></hgroup><article  id="the-solution">
 
-<ul>
-<li>extensive use of the formula class</li>
-<li>pro:
-
-<ul>
-<li><code>R CMD check</code> friendly</li>
-<li>not relying on non-standard-evaluation: normal dispatch and argument passing possible</li>
-</ul></li>
-<li>contra:
-
-<ul>
-<li>using formulas is a matter of preference</li>
-</ul></li>
-</ul>
-
 </article></slide><slide class=''><hgroup><h2>Aim of the Package</h2></hgroup><article  id="aim-of-the-package">
-
-<ul>
-<li>don&#39;t loose the performance improvements from <code>dplyr</code> or <code>data.table</code></li>
-<li>reuse as much as possible</li>
-<li>be generic</li>
-<li>respect custom classes</li>
-<li>abstract (my) typical (data manipulation) patterns</li>
-</ul>
-
-</article></slide><slide class=''><hgroup><h2>Design Issues</h2></hgroup><article  id="design-issues">
-
-<ul>
-<li><code>dplyr</code>: functions do one thing only!
-
-<ul>
-<li><code>slice</code> and <code>filter</code></li>
-</ul></li>
-<li><code>data.table</code>: let&#39;s write one function only!
-
-<ul>
-<li><code>[.data.table</code> has about 1500 lines of code</li>
-<li>400 open issues on github</li>
-</ul></li>
-<li><code>dat</code>: I don&#39;t believe in extremes
-
-<ul>
-<li>is somewhere in between</li>
-<li>preserves the class (S3 + S4) and uses (mostly) dplyr in the background</li>
-</ul></li>
-</ul>
-
-</article></slide><slide class=''><hgroup><h2>Examples: rows</h2></hgroup><article  id="examples-rows">
-
-<pre class = 'prettyprint lang-r'>data(&quot;airquality&quot;)
-suppressPackageStartupMessages(library(&quot;dat&quot;))
-airQuality &lt;- as.DataFrame(airquality)
-airQuality[~Day &lt; 7, ]</pre>
-
-<pre >## # A tibble: 30 × 6
-##    Ozone Solar.R  Wind  Temp Month   Day
-##    &lt;int&gt;   &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-## 1     41     190   7.4    67     5     1
-## 2     36     118   8.0    72     5     2
-## 3     12     149  12.6    74     5     3
-## 4     18     313  11.5    62     5     4
-## 5     NA      NA  14.3    56     5     5
-## 6     28      NA  14.9    66     5     6
-## 7     NA     286   8.6    78     6     1
-## 8     NA     287   9.7    74     6     2
-## 9     NA     242  16.1    67     6     3
-## 10    NA     186   9.2    84     6     4
-## # ... with 20 more rows</pre>
-
-</article></slide><slide class=''><hgroup><h2>Examples: rows</h2></hgroup><article  id="examples-rows-1">
-
-<pre class = 'prettyprint lang-r'>suppressPackageStartupMessages(library(&quot;data.table&quot;))
-as.data.table(airquality) %&gt;% mutar(~ Day &lt; 7)</pre>
-
-<pre >##     Ozone Solar.R Wind Temp Month Day
-##  1:    41     190  7.4   67     5   1
-##  2:    36     118  8.0   72     5   2
-##  3:    12     149 12.6   74     5   3
-##  4:    18     313 11.5   62     5   4
-##  5:    NA      NA 14.3   56     5   5
-##  6:    28      NA 14.9   66     5   6
-##  7:    NA     286  8.6   78     6   1
-##  8:    NA     287  9.7   74     6   2
-##  9:    NA     242 16.1   67     6   3
-## 10:    NA     186  9.2   84     6   4
-## 11:    NA     220  8.6   85     6   5
-## 12:    NA     264 14.3   79     6   6
-## 13:   135     269  4.1   84     7   1
-## 14:    49     248  9.2   85     7   2
-## 15:    32     236  9.2   81     7   3
-## 16:    NA     101 10.9   84     7   4
-## 17:    64     175  4.6   83     7   5
-## 18:    40     314 10.9   83     7   6
-## 19:    39      83  6.9   81     8   1
-## 20:     9      24 13.8   81     8   2
-## 21:    16      77  7.4   82     8   3
-## 22:    78      NA  6.9   86     8   4
-## 23:    35      NA  7.4   85     8   5
-## 24:    66      NA  4.6   87     8   6
-## 25:    96     167  6.9   91     9   1
-## 26:    78     197  5.1   92     9   2
-## 27:    73     183  2.8   93     9   3
-## 28:    91     189  4.6   93     9   4
-## 29:    47      95  7.4   87     9   5
-## 30:    32      92 15.5   84     9   6
-##     Ozone Solar.R Wind Temp Month Day</pre>
-
-</article></slide><slide class=''><hgroup><h2>Examples: cols</h2></hgroup><article  id="examples-cols">
-
-<pre class = 'prettyprint lang-r'>airQuality[is.numeric]
-# airquality(sapply(airquality, is.numeric))
-
-as.data.table(airquality) %&gt;% mutar(&quot;Ozone:Wind&quot;) # remeber dplyr::select
-
-mutar(airquality, &quot;^Wi&quot;) # regex is triggered by &#39;^&#39;
-airQuality[&quot;^Wi&quot;]
-# airquality[grepl(&quot;^Wi&quot;, names(airquality))]
-
-airQuality[1] # error - no positional matching!
-
-# Yes, base R syntax is otherwise okay:
-ind &lt;- 1:5
-airQuality[ind, &quot;Wind&quot;]</pre>
-
-</article></slide><slide class=''><hgroup><h2>Examples: mutate + summary</h2></hgroup><article  id="examples-mutate-summary">
-
-<pre class = 'prettyprint lang-r'>airquality %&gt;%
-  mutar(
-    meanWind ~ mean(Wind), 
-    by = &quot;Month&quot;
-  )
-
-airQuality[meanWind ~ mean(Wind), by = &quot;Month&quot;]</pre>
-
-<ul>
-<li><code>mutar</code> can do
-
-<ul>
-<li>row subsetting</li>
-<li>col subsetting (character + logical, regex, functions)</li>
-<li>create new columns using <code>dplyr::mutate</code></li>
-<li>data aggregation using <code>dplyr::summarise</code> (triggered with <code>by</code>)</li>
-<li>stops here</li>
-</ul></li>
-</ul>
-
-</article></slide><slide class=''><hgroup><h2>Integration of Custom Classes</h2></hgroup><article  id="integration-of-custom-classes">
-
-<pre class = 'prettyprint lang-r'>setClass(&quot;MyData&quot;, contains = &quot;data.table&quot;)
-MyData &lt;- function(...) new(&quot;MyData&quot;, data.table(...))
-dat &lt;- do.call(MyData, airquality)
-dat[1, ] # it is just broken - same for dplyr</pre>
-
-<pre >## Error in if (n &gt; 0) c(NA_integer_, -n) else integer(): argument is of length zero</pre>
-
-</article></slide><slide class=''><hgroup><h2><code>mutar</code> can do more!</h2></hgroup><article  id="mutar-can-do-more">
-
-<pre class = 'prettyprint lang-r'>setMethod(&quot;[&quot;, &quot;MyData&quot;, mutar)</pre>
-
-<pre >## [1] &quot;[&quot;</pre>
-
-<pre class = 'prettyprint lang-r'>dat[1, ]</pre>
-
-<pre >## Object of class &quot;MyData&quot;
-##    Ozone Solar.R Wind Temp Month Day
-## 1:    41     190  7.4   67     5   1</pre>
-
-<pre class = 'prettyprint lang-r'>dat[1, CopyOfDay ~ Day]</pre>
-
-<pre >## Object of class &quot;MyData&quot;
-##    Ozone Solar.R Wind Temp Month Day CopyOfDay
-## 1:    41     190  7.4   67     5   1         1</pre>
-
-</article></slide><slide class=''><hgroup><h2>Additional functions</h2></hgroup><article  id="additional-functions">
-
-<ul>
-<li><code>map</code>: as a replacement for <code>lapply</code> and <code>mapply</code></li>
-<li><code>flatmap</code>: instead of <code>sapply</code></li>
-<li><code>replace</code>: to replace values in a vector</li>
-<li><code>extract</code>: to extract values from a vector</li>
-</ul>
-
-</article></slide><slide class=''><hgroup><h2>Be <code>data.frame</code> aware</h2></hgroup><article  id="be-data.frame-aware">
-
-<pre class = 'prettyprint lang-r'>ind &lt;- sapply(airquality, is.integer)
-airquality[ind] &lt;- lapply(airquality[ind], function(x) as.character(x + 1))
-map(airquality, x ~ as.integer(x) - 1L, is.character) %&gt;%
-  str</pre>
-
-<pre >## &#39;data.frame&#39;:    153 obs. of  6 variables:
-##  $ Ozone  : int  41 36 12 18 NA 28 23 19 8 NA ...
-##  $ Solar.R: int  190 118 149 313 NA NA 299 99 19 194 ...
-##  $ Wind   : num  7.4 8 12.6 11.5 14.3 14.9 8.6 13.8 20.1 8.6 ...
-##  $ Temp   : int  67 72 74 62 56 66 65 59 61 69 ...
-##  $ Month  : int  5 5 5 5 5 5 5 5 5 5 ...
-##  $ Day    : int  1 2 3 4 5 6 7 8 9 10 ...</pre>
-
-</article></slide><slide class=''><hgroup><h2>Be <code>list</code> aware</h2></hgroup><article  id="be-list-aware">
-
-<pre class = 'prettyprint lang-r'>l &lt;- list(
-  a = list(name = &quot;Me&quot;, age = 29),
-  b = list(name = &quot;You&quot;, age = &quot;&gt;30&quot;)
-)
-
-lapply(l, function(x) x[&quot;name&quot;])
-map(l, &quot;name&quot;)
-flatmap(l, &quot;name&quot;)</pre>
-
-<pre class = 'prettyprint lang-r'>flatmap(l, ~ .$name) # function(.) .$name</pre>
-
-<pre >##     a     b 
-##  &quot;Me&quot; &quot;You&quot;</pre>
-
-</article></slide><slide class=''><hgroup><h2>Be paranoid</h2></hgroup><article  id="be-paranoid">
-
-<ul>
-<li>add runtime type checks</li>
-</ul>
-
-<pre class = 'prettyprint lang-r'>flatmap(l, numeric : x ~ x$age)</pre>
-
-<pre >## Error in f(...): Function does not return correct type
-##            expected: numeric
-##            observed: character</pre>
-
-<pre class = 'prettyprint lang-r'>flatmap(l, character(1) : x ~ x$name)</pre>
-
-<pre >##     a     b 
-##  &quot;Me&quot; &quot;You&quot;</pre>
-
-</article></slide><slide class=''><hgroup><h2>Be comprehensive</h2></hgroup><article  id="be-comprehensive">
-
-<pre class = 'prettyprint lang-r'>extract(1:20, ~ . %% 2 == 0)</pre>
-
-<pre >##  [1]  2  4  6  8 10 12 14 16 18 20</pre>
-
-<pre class = 'prettyprint lang-r'>replace(1:10, ~ . %% 2 == 0, NA_real_)</pre>
-
-<pre >##  [1]  1 NA  3 NA  5 NA  7 NA  9 NA</pre>
-
-<pre class = 'prettyprint lang-r'>vec &lt;- 1:20
-vec[vec %% 2 == 0]</pre>
-
-<pre >##  [1]  2  4  6  8 10 12 14 16 18 20</pre>
 
 </article></slide><slide class=''><hgroup><h2>Summary</h2></hgroup><article  id="summary">
 
@@ -376,7 +172,7 @@ vec[vec %% 2 == 0]</pre>
 </article></slide><slide class=''><hgroup><h2>Want more?</h2></hgroup><article  id="want-more">
 
 <ul>
-<li>Modules is on GitHub
+<li><code>modules</code> is on GitHub
 
 <ul>
 <li><a href='https://www.github.com/wahani/modules' title=''>github.com/wahani/modules</a></li>
