@@ -216,5 +216,8 @@ almost all use cases for production code
     - Just file an issue / make a pull request
     - It has a vignette / Readme
 
+- The Presentation is also in GitHub
+    - [github.com/wahani/presiModules](https://www.github.com/wahani/presiModules)
+
 - Sebastian Warnholz
     - wahani@gmail.com
