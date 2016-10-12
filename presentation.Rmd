@@ -13,34 +13,44 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-## Motivation {.smaller}
+## Motivation 
 
 <div class="columns-2">
-<div style="height=100%">
-### Initial Problem
-```{r echo = TRUE, error=TRUE}
-library("parallel")
-helper <- function(x) median(x)
+
+### Maybe a Problem
+```{r echo = TRUE, error=TRUE, tidy=FALSE, eval = FALSE}
+#
+
+
+
+
+helper <- function(x) rnorm(x)
 fun <- function(x) helper(x)
 
+
+
+library("parallel")
 cl <- makeCluster(2)
 clusterMap(cl, fun, 1:2)
 stopCluster(cl)
 ```
-</div>
 
-<div style="bottom: 20px;"></div>
 
-### Solution
-```{r echo = TRUE, message=FALSE}
-library("parallel")
+
+### One Solution
+```{r echo = TRUE, message=FALSE, eval = FALSE}
+
 library("modules")
 m <- module({
-  import("stats", "median")
-  helper <- function(x) median(x)
+  
+  import("stats", "rnorm")
+  
+  helper <- function(x) rnorm(x)
   fun <- function(x) helper(x)
+  
 })
 
+library("parallel")
 cl <- makeCluster(2)
 clusterMap(cl, m$fun, 1:2)
 stopCluster(cl)
@@ -49,10 +59,11 @@ stopCluster(cl)
 </div>
 
 
+## Basics
 
-
-## The 'Solution'
-
+<div style="width=100%">
+![sd](chart.png)
+</div>
 
 
 ## Aim of the Package
