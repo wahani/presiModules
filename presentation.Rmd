@@ -4,8 +4,9 @@ subtitle: eRum 2016
 author: Sebastian Warnholz - **INWT** Statistics
 output: 
   ioslides_presentation:
-    widescreen: true
+    widescreen: false
     logo: logo.svg
+    self_contained: true
 ---
 
 ```{r setup, include=FALSE}
@@ -13,11 +14,11 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-## Motivation 
+## Example 
 
 <div class="columns-2">
 
-### Maybe a Problem
+### Maybe a problem
 ```{r echo = TRUE, error=TRUE, tidy=FALSE, eval = FALSE}
 #
 
@@ -37,7 +38,7 @@ stopCluster(cl)
 
 
 
-### One Solution
+### One solution
 ```{r echo = TRUE, message=FALSE, eval = FALSE}
 
 library("modules")
@@ -58,40 +59,124 @@ stopCluster(cl)
 
 </div>
 
+## Example
+
+<div class="columns-2">
+### Missing dependency
+![sd](scopeStandard.png)
+
+### Scoping with modules
+![sd](scope.png)
+
+</div>
 
 ## Basics
 
-<div style="width=100%">
 ![sd](chart.png)
+
+
+## Use case: scripts {.smaller}
+
+<div class="columns-2">
+### Out-sourcing functions
+
+```{r echo = TRUE, error=TRUE, tidy=FALSE, eval = FALSE}
+# Instead of:
+source("functions.R")
+fun()
+
+# we can write
+m <- modules::use("functions.R")
+m$fun()
+```
+
+
+
+### `functions.R`
+```{r echo = TRUE, message=FALSE, eval = FALSE}
+import("somePackage", "someFunction")
+export("fun")
+
+doSomethingWith <- function(x) ...
+
+fun <- function(x = NULL) {
+  doSomethingWith(x)
+}
+```
+
 </div>
 
 
-## Aim of the Package
+## Use case: functions {.smaller}
 
+<div class="columns-2">
+### Function with side-effect
+
+```{r echo = TRUE, error=TRUE, tidy=FALSE, eval = FALSE}
+plotFun <- function(data, ...) {
+  
+  library("ggplot2")
+  
+  ggplot(data, aes(...)) + 
+    geom_boxplot() +
+    ...
+  
+}
+```
+
+### Alternative
+```{r echo = TRUE, message=FALSE, eval = FALSE}
+plotFun <- function(data, ...) {
+  
+  modules::import("ggplot2")
+  
+  ggplot(data, aes(...)) + 
+    geom_boxplot() +
+    ...
+  
+}
+```
+</div>
+
+
+## Use case: organization
+
+```{r echo = TRUE, error=TRUE, tidy=FALSE, eval = FALSE}
+mathStuff <- module({
+  
+  add <- function(x, y) x + y
+  subtract <- function(x, y) x - y
+  
+  usefulAbstractions <- module({
+    
+    add1 <- function(x) add(x, 1)
+    
+  })
+  
+})
+```
 
 
 
 ## Summary
 
-- you can fall back to or integrate `dplyr` and `data.table` functions
-- syntactic sugar for anonymous functions
-- use custom data types:
-    - everything is a method: `map`, `replace`, and `extract`
-    - `mutar` respects the data it operates on (for better or worse)
-- have *pipeable* syntax: no replacement functions
-- may not replace everything in an interactive data analysis `->` it covers
-almost all use cases for production code
+- Scripting: Managing dependencies in scripts
+    - Alternative to `library` and `pkg::fun`
+    - Across several files
+- Programming: Organizing similar functions into modules
+- Education: Having an intermediate level between scripts and R-packages
 
 
 ## Want more?
 
 - `modules` is on GitHub
     - [github.com/wahani/modules](https://www.github.com/wahani/modules)
+    - (CRAN: `install.packages("modules")`)
     - Just file an issue / make a pull request
     - It has a vignette / Readme
+
 
 - The Presentation is also in GitHub
     - [github.com/wahani/presiModules](https://www.github.com/wahani/presiModules)
 
-- Sebastian Warnholz
-    - wahani@gmail.com
+- sebastian.warnholz@inwt.de
