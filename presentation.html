@@ -170,6 +170,7 @@ stopCluster(cl)</pre></div>
 source(&quot;functions.R&quot;)
 fun()
 
+
 # we can write
 m &lt;- modules::use(&quot;functions.R&quot;)
 m$fun()</pre>
@@ -179,11 +180,11 @@ m$fun()</pre>
 <pre class = 'prettyprint lang-r'>import(&quot;somePackage&quot;, &quot;someFunction&quot;)
 export(&quot;fun&quot;)
 
-doSomethingWith &lt;- function(x) ...
-
 fun &lt;- function(x = NULL) {
   doSomethingWith(x)
-}</pre></div>
+}
+
+doSomethingWith &lt;- function(x) ...</pre></div>
 
 </article></slide><slide class=''><hgroup><h2>Use case: functions</h2></hgroup><article  id="use-case-functions" class="smaller">
 

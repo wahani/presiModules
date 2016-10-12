@@ -1,12 +1,13 @@
 ---
-title: Modules in R
+title: "Modules in R"
+author: "Sebastian Warnholz - **INWT** Statistics"
 subtitle: eRum 2016
-author: Sebastian Warnholz - **INWT** Statistics
-output: 
+output:
   ioslides_presentation:
-    widescreen: false
     logo: logo.svg
-    self_contained: true
+    self_contained: yes
+    widescreen: no
+  beamer_presentation: default
 ---
 
 ```{r setup, include=FALSE}
@@ -85,6 +86,7 @@ stopCluster(cl)
 source("functions.R")
 fun()
 
+
 # we can write
 m <- modules::use("functions.R")
 m$fun()
@@ -97,11 +99,11 @@ m$fun()
 import("somePackage", "someFunction")
 export("fun")
 
-doSomethingWith <- function(x) ...
-
 fun <- function(x = NULL) {
   doSomethingWith(x)
 }
+
+doSomethingWith <- function(x) ...
 ```
 
 </div>
