@@ -7,7 +7,6 @@ output:
     logo: logo.svg
     self_contained: yes
     widescreen: no
-  beamer_presentation: default
 ---
 
 ```{r setup, include=FALSE}
@@ -175,10 +174,6 @@ mathStuff <- module({
     - [github.com/wahani/modules](https://www.github.com/wahani/modules)
     - (CRAN: `install.packages("modules")`)
     - Just file an issue / make a pull request
-    - It has a vignette / Readme
-
-
-- The Presentation is also in GitHub
-    - [github.com/wahani/presiModules](https://www.github.com/wahani/presiModules)
+    - Read the vignette / readme
 
 - sebastian.warnholz@inwt.de
